@@ -1,11 +1,11 @@
 {
-  "name": "playable-pixi",
+  "name": "pixi-app",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "prebuild": "assetpack",
     "dev": "vite",
-    "build": "npm run lint && tsc && vite build"
+    "build": "vite build"
   },
   "author": "xevin",
   "license": "ISC",

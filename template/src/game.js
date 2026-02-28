@@ -1,14 +1,16 @@
-import { Container, Sprite, Text } from "pixi.js"
+import { Assets, Container, Sprite, Text } from "pixi.js"
 import App from "./core/app"
 
 
 export class Game extends App {
   init(width, height) {
     this.bg = new Sprite({
-      texture: Cache.get("bg"),
+      texture: Assets.get("bg"),
       anchor: 0.5,
     })
-    this.bg.scale.set(Math.max(width/this.bg.width, height/this.bg.height))
+    this.bgHeight = this.bg.height
+    this.bgWidth = this.bg.width
+    this.bg.scale.set(Math.max(width/this.bgWidth, height/this.bgHeight))
 
     this.scene = new Container()
 

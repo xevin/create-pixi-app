@@ -1,7 +1,8 @@
 import { Assets } from "pixi.js"
+import { capitalizeFirstLetter } from "./utils"
 
-import bg from "assets/bg.webp"
-import robotoFont from "assets/Roboto-VariableFont.ttf"
+import bg from "../assets/images/bg.webp"
+import robotoFont from "../assets/fonts/Roboto-VariableFont.ttf"
 
 let fonts = {
   // <FontFamily>: <base64>

@@ -1,0 +1,21 @@
+{
+  "name": "playable-pixi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "assetpack",
+    "dev": "vite",
+    "build": "npm run lint && tsc && vite build"
+  },
+  "author": "xevin",
+  "license": "ISC",
+  "description": "Базовый шаблон для написания игры на pixi.js",
+  "devDependencies": {
+    "@assetpack/core": "^1.4.0",
+    "vite": "^7.3.1",
+    "vite-plugin-singlefile": "^2.3.0"
+  },
+  "dependencies": {
+    "pixi.js": "^8.15.0"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "create-pixi-app",
+  "version": "1.0.1",
+  "main": "./index.js",
+  "bin": {
+    "create-playable-pixi": "./index.js"
+  },
+  "dependencies": {}
+}

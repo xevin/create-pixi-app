@@ -2,3 +2,49 @@
 export function capitalizeFirstLetter(s) {
   return s && String(s[0]).toUpperCase() + String(s).slice(1)
 }
+
+
+export function createRect(x, y, w, h, fill=null) {
+  let graphics = new Graphics()
+  graphics.rect(x, y, w, h)
+
+  if (fill !== null) {
+    graphics.fill(fill)
+  }
+
+  return graphics
+}
+
+export function createRoundRect(x, y, w, h, radius, fill=0xFFFFFF) {
+  let graphics = new Graphics()
+  graphics.roundRect(x, y, w, h, radius)
+
+  if (fill !== null) {
+    graphics.fill(fill)
+  }
+
+  return graphics
+}
+
+export function createCircle(x, y, radius, fill=null) {
+  let graphics = new Graphics()
+  graphics.circle(x, y, radius)
+
+  if (fill !== null) {
+    graphics.fill(fill)
+  }
+
+  return graphics
+}
+
+export function gradient(fromColor, toColor) {
+  return new FillGradient({
+    type: "linear",
+    end: { x: 0, y: 1 },
+    colorStops: [
+      { offset: 0, color: fromColor, alpha: 1 },
+      // { offset: 0.5, color: "#f9d843", alpha: 1 },
+      { offset: 1, color: toColor, alpha: 1 }
+    ]
+  })
+}

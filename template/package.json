@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "prebuild": "assetpack",
+    "prebuild": "assets:build",
     "dev": "vite",
     "build": "vite build"
   },

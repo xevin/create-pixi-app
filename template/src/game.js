@@ -11,22 +11,43 @@ export class Game extends App {
     this.backgroundWidth = this.bg.width
     this.bg.scale.set(Math.max(width/this.backgroundWidth, height/this.backgroundHeight))
 
-    let title = new Text({
+    this.title = new Text({
       text: "Title",
       anchor: 0.5,
-      eventMode: "static",
+      style: {
+        fontSize: 100,
+        fontWeight: 600,
+        stroke: {
+          width: 8,
+          color: "#000000"
+        }
+      },
     })
 
     this.addChild(
       this.bg,
-      title,
+      this.title,
     )
+
+    this.resize(width, height)
   }
 
   resize(width, height) {
     super.resize(width, height)
 
     const scaleCover = Math.max(width/this.backgroundWidth, height/this.backgroundHeight)
+    // фоновое изображение всегда покрывает весь экран
     this.bg.scale.set(scaleCover)
+
+    // сохраняем положение в верхней части экрана
+    this.title.y = height/-2.4
+
+    if(width > height) {
+      // альбомная ориентация
+      this.title.scale.set(width/1280)
+    } else {
+      // портретная ориентация
+      this.title.scale.set(width/625)
+    }
   }
 }

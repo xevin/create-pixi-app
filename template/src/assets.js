@@ -2,10 +2,10 @@ import { Assets, Cache, Spritesheet } from "pixi.js"
 import { capitalizeFirstLetter } from "./utils"
 
 // Шрифты
-import robotoFont from "assets/fonts/Roboto-VariableFont.ttf"
+import robotoFont from "../assets/fonts/Roboto-VariableFont.ttf"
 
 // Изображения
-import background from "assets/images/bg.webp"
+import background from "../assets/images/bg.webp"
 
 // Анимации
 // import lightingAnimationConfig from "assets/arrow_lighting.png.json"

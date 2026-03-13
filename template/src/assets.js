@@ -1,19 +1,38 @@
-import { Assets } from "pixi.js"
+import { Assets, Cache, Spritesheet } from "pixi.js"
 import { capitalizeFirstLetter } from "./utils"
 
-import bg from "../assets/images/bg.webp"
-import robotoFont from "../assets/fonts/Roboto-VariableFont.ttf"
+// Шрифты
+import robotoFont from "assets/fonts/Roboto-VariableFont.ttf"
 
-let fonts = {
-  // <FontFamily>: <base64>
-  Roboto: robotoFont,
+// Изображения
+import background from "assets/images/bg.webp"
+
+// Анимации
+// import lightingAnimationConfig from "assets/arrow_lighting.png.json"
+// import lightingAnimationFrames from "assets/arrow_lighting.png"
+
+
+const FONTS = {
+  // <fontFamily>: <base64>
+  roboto: robotoFont,
 }
 
-let images = {
-  bg,
+// для загрузки SVG через Assets.load(), его надо преобразовывать в Base64
+// svgImage: utils.svgToBase64(svgImage)
+const IMAGES = {
+  // <assetAlias>: <base64>
+  background,
 }
 
-function objectToAssetArray(obj) {
+const ANIMATIONS = [
+  // {
+  //   alias: "lighting",
+  //   config: lightingAnimationConfig,
+  //   frames: lightingAnimationFrames
+  // },
+]
+
+function objectToAssetList(obj) {
   let result = []
   for(let key in obj) {
     result.push({
@@ -41,12 +60,42 @@ function objectToFontAssetList(obj) {
 }
 
 
+async function loadAnimations(alias, config, texture) {
+  /* не понял как грузить анимации из json через Assets.load()
+    что-бы потом собрать весь проект в один файл
+
+    Поэтому самостоятельно разбираем json, создаём Spritesheet и добавляем в Cache
+  * */
+
+  let framesConfig = JSON.parse(config)
+  let framesAlias = alias + "Frames"
+
+  await Assets.load({
+    alias: framesAlias,
+    src: texture
+  })
+
+  const sheet = new Spritesheet(
+    Assets.get(framesAlias),
+    framesConfig
+  )
+
+  await sheet.parse()
+  Cache.set(alias, sheet)
+}
+
+
 export async function loadAssets() {
-  // грузим изображения в кэш
-  let imageList = objectToAssetArray(images)
+  // грузим изображения
+  let imageList = objectToAssetList(IMAGES)
   await Assets.load(imageList)
 
-  // шрифты в Ассеты
-  let fontList = objectToFontAssetList(fonts)
+  // грузим анимации. Они станут доступны через Cache.get("animation_name")
+  for(let i of ANIMATIONS) {
+    await loadAnimations(i.alias, i.config, i.frames)
+  }
+
+  // грузим шрифты в Ассеты
+  let fontList = objectToFontAssetList(FONTS)
   await Assets.load(fontList)
 }

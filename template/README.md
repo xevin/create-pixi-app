@@ -4,9 +4,10 @@
 
 ## Как пользоваться
 
-1. Закинь ассеты в папку *raw-assets/* 
-2. собери ассеты с помощью [assetpack](https://github.com/pixijs/assetpack) командой `npm run prebuild`  
+1. Закинь ассеты в папку *_raw-assets/* 
+2. подключи нужные ассеты в файле **src/assets.js**
+3. собери ассеты с помощью [assetpack](https://github.com/pixijs/assetpack) командой `npm run assets:build`  
    При этом обработанные ассеты появятся в папке **assets**
-3. подключи нужные ассеты в файле **src/assets.js**
 4. запускай `npm run dev`
-5. сборка `npm run build` в папке **dist/** появится сборка
+5. разрабатывай
+6. сбирай через `npm run build`. В папке **dist/** появится сборка

@@ -6,7 +6,7 @@
 1. Создай проект на основе этого шаблона    
 `npm create xevin/pixi-app %название-проекта%`
 2. переходи в папку *%название-проекта%*
-3. Закинь ассеты в папку *raw-assets/* и собери их с помощью [assetpack](https://github.com/pixijs/assetpack) командой `npm run prebuild`
+3. Закинь ассеты в папку *_raw-assets/* и собери их с помощью [assetpack](https://github.com/pixijs/assetpack) командой `npm run assets:build`
   1. обработанные ассеты появятся в папке assets/*
 4. запускай `npm run dev`
 5. *разрабатывай...*

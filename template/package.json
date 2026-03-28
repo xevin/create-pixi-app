@@ -1,9 +1,10 @@
 {
   "name": "pixi-app",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "scripts": {
     "assets:build": "assetpack",
+    "assets:dropcache": "rm -rf .assetpack/*",
     "dev": "vite",
     "build": "vite build"
   },
@@ -16,6 +17,7 @@
     "vite-plugin-singlefile": "^2.3.0"
   },
   "dependencies": {
-    "pixi.js": "^8.15.0"
+    "@pixi/sound": "^6.0.1",
+    "pixi.js": "^8.17.1"
   }
 }

@@ -1,11 +1,11 @@
 import { loadAssets } from "./assets"
-import { Game } from "./game"
+import { GameApp } from "./game"
 
 let app
 
 window.addEventListener("load", async () => {
   await loadAssets()
-  app = new Game(window.innerWidth, window.innerHeight)
+  app = new GameApp(window.innerWidth, window.innerHeight)
 })
 
 

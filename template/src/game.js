@@ -1,5 +1,9 @@
 import { Assets, Sprite, Text } from "pixi.js"
 import App from "./core/app"
+import SoundManager from "./core/sound_manager"
+
+const snd = SoundManager.getInstance()
+
 
 export class GameApp extends App {
   init(width, height) {

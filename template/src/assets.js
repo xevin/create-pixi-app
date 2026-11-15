@@ -1,11 +1,17 @@
 import { Assets, Cache, Spritesheet } from "pixi.js"
 import { capitalizeFirstLetter } from "./utils"
+import SoundManager from "./core/sound_manager"
 
 // Шрифты
 import robotoFont from "../assets/fonts/Roboto-VariableFont.ttf"
 
 // Изображения
 import background from "../assets/images/bg.webp"
+
+
+// Звуки
+// оригинальный звук в OGG но assetpack преобразует в MP3 (смотри src/_assetpack.js)
+import clickSound from "../assets/audio/glass_006.mp3?inline"
 
 // Анимации
 // import lightingAnimationConfig from "assets/arrow_lighting.png.json"
@@ -31,6 +37,11 @@ const ANIMATIONS = [
   //   frames: lightingAnimationFrames
   // },
 ]
+
+const SOUNDS = {
+  clickSound
+}
+
 
 function objectToAssetList(obj) {
   let result = []
@@ -98,4 +109,10 @@ export async function loadAssets() {
   // грузим шрифты в Ассеты
   let fontList = objectToFontAssetList(FONTS)
   await Assets.load(fontList)
+
+  // Грузим звуки
+  const sound = SoundManager.getInstance()
+  for (let soundKey in SOUNDS) {
+    sound.load(soundKey, SOUNDS[soundKey])
+  }
 }

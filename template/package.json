@@ -1,6 +1,6 @@
 {
   "name": "pixi-app",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "scripts": {
     "assets:build": "assetpack",
@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build"
   },
-  "author": "xevin",
+  "author": "",
   "license": "ISC",
   "description": "Базовый шаблон для написания игры на pixi.js",
   "devDependencies": {

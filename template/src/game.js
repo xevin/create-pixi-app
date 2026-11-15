@@ -11,6 +11,13 @@ export class GameApp extends App {
     this.backgroundWidth = this.bg.width
     this.bg.scale.set(Math.max(width/this.backgroundWidth, height/this.backgroundHeight))
 
+    // Звук клика
+    this.bg.eventMode = "static"
+    this.bg.on("pointerdown", () => {
+      // случайный питч
+      snd.play("clickSound", { speed: 0.95 + Math.random() * 0.1 })
+    })
+
     this.title = new Text({
       text: "Title",
       anchor: 0.5,

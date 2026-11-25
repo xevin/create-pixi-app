@@ -10,5 +10,6 @@ window.addEventListener("load", async () => {
 
 
 window.addEventListener("resize", () => {
+  if (!app) return
   app.resize(window.innerWidth, window.innerHeight)
 })

@@ -10,4 +10,5 @@ export default {
   backgroundColor: "#080d22",
   antialias: true,
   resolution: 2,
+  defaultLang: "ru",
 }

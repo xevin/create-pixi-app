@@ -34,8 +34,8 @@ export default class SceneManager {
   }
 
   resize(width, height) {
-    this.#scenes.values().forEach(scene => {
+    for (const scene of this.#scenes.values()) {
       scene.resize(width, height)
-    })
+    }
   }
 }

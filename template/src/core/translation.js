@@ -7,8 +7,9 @@ import Singleton from "./singleton"
 
     let data = {
       "GAME_OVER": {
-      "ru": "Конец игры" ,
-      "en": "Game Over"
+        "ru": "Конец игры" ,
+        "en": "Game Over",
+      }
     }
 
     let tr = Translation.getInstance()

@@ -6,13 +6,15 @@
     "assets:build": "assetpack",
     "assets:dropcache": "rm -rf .assetpack/*",
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "build:zip": "vite build && node scripts/build-zip.mjs"
   },
   "author": "",
   "license": "ISC",
   "description": "Базовый шаблон для написания игры на pixi.js",
   "devDependencies": {
     "@assetpack/core": "^1.4.0",
+    "archiver": "^8.0.0",
     "vite": "^7.3.1",
     "vite-plugin-singlefile": "^2.3.0"
   },
